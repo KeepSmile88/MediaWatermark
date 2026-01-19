@@ -1,0 +1,129 @@
+/* Global */
+QWidget {
+    font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #f5f6f7;
+}
+
+QMainWindow {
+    background-color: #ffffff;
+}
+
+/* Panels */
+#leftPanel {
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+}
+
+#rightPanel {
+    background-color: #fafbfc;
+}
+
+/* Watermark Upload & Preview */
+#btnUploadWatermark {
+    background-color: #ffffff;
+    color: #0078d4;
+    border: 1px dashed #0078d4;
+    border-radius: 8px;
+    font-weight: bold;
+}
+#btnUploadWatermark:hover {
+    background-color: #f0f7ff;
+}
+
+#previewContainer {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+}
+
+#btnClearWatermark {
+    background-color: transparent;
+    color: #d93025;
+    border: none;
+    min-width: 0;
+}
+#btnClearWatermark:hover {
+    text-decoration: underline;
+}
+
+/* Right Panel Elements */
+#lblFileCount {
+    font-size: 12px;
+}
+
+#statsFrame {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 500;
+}
+QPushButton:hover {
+    background-color: #1084df;
+}
+QPushButton:pressed {
+    background-color: #006abc;
+}
+QPushButton:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+}
+
+#btnSelectFolder {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #dcdcdc;
+}
+#btnSelectFolder:hover {
+    background-color: #f5f5f5;
+}
+
+#btnReset {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #dcdcdc;
+    min-width: 100px;
+}
+#btnReset:hover {
+    background-color: #f5f5f5;
+}
+
+/* Table */
+QTableWidget {
+    border: none;
+    background-color: transparent;
+    alternate-background-color: #f9fafb;
+    selection-background-color: #eef6ff;
+    selection-color: #0078d4;
+    outline: none;
+}
+QHeaderView::section {
+    background-color: transparent;
+    color: #666;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+
+/* Progress Bar in Table */
+QProgressBar {
+    height: 8px;
+    border: none;
+    background-color: #eee;
+    border-radius: 4px;
+    text-align: right;
+}
+QProgressBar::chunk {
+    background-color: #0078d4;
+    border-radius: 4px;
+}

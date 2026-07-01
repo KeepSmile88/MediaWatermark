@@ -37,7 +37,7 @@ jobs:
 
       - name: Build Main App with Nuitka
         run: |
-          python -m nuitka --standalone --windows-console-mode=disable --windows-icon-from-ico=app_icon.ico --enable-plugin=pyside6 --output-filename=MediaWatermark.exe --output-dir=dist main.py
+          python -m nuitka --assume-yes-for-downloads --standalone --windows-console-mode=disable --windows-icon-from-ico=app_icon.ico --enable-plugin=pyside6 --output-filename=MediaWatermark.exe --output-dir=dist main.py
 
       - name: Prepare Inno Setup Directory
         run: |

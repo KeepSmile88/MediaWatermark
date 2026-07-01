@@ -14,6 +14,10 @@ __pycache__/
 !*.iss
 !*.yml
 !*.yaml
+!*.png
+!*.ico
+!*.cpp
+!*.icns
 
 # 如果你有其他需要保留的文本/配置文件，也可以加上：
 !*.txt

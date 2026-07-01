@@ -4,4 +4,4 @@ opencv-python
 numpy
 packaging
 requests
-ffmpeg-python
+scenedetect

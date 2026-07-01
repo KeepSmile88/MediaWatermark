@@ -50,6 +50,22 @@ def check_ffmpeg() -> tuple[Optional[str], Optional[str]]:
         ffmpeg_path = str(local_ffmpeg) if local_ffmpeg.exists() else which_or_none("ffmpeg")
         ffprobe_path = str(local_ffprobe) if local_ffprobe.exists() else which_or_none("ffprobe")
 
+        # Fallback for macOS GUI apps where PATH might not include /usr/local/bin
+        if sys.platform == "darwin":
+            mac_paths = ["/usr/local/bin", "/opt/homebrew/bin", "/usr/bin"]
+            if not ffmpeg_path:
+                for p in mac_paths:
+                    candidate = Path(p) / "ffmpeg"
+                    if candidate.exists() and os.access(candidate, os.X_OK):
+                        ffmpeg_path = str(candidate)
+                        break
+            if not ffprobe_path:
+                for p in mac_paths:
+                    candidate = Path(p) / "ffprobe"
+                    if candidate.exists() and os.access(candidate, os.X_OK):
+                        ffprobe_path = str(candidate)
+                        break
+
         return ffmpeg_path, ffprobe_path
     except Exception as e:
         logger.warning(f"本地 FFmpeg 探测失败 (将降级为系统 PATH): {e}")

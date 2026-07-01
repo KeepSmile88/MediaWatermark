@@ -29,7 +29,7 @@ def build():
     # === 基础参数 ===
     base_args = [
         'pyinstaller',
-        '--name=OpenTimeLog',
+        '--name=MediaWatermark',
         '--noconfirm',
         '--clean'
     ]
@@ -39,9 +39,7 @@ def build():
         print("开始 Windows 打包...")
         args = base_args + [
             '--windowed',  # 不显示控制台
-            '--icon=resources/main.ico',
-            '--add-data=resources;resources',
-            '--add-data=config.json;.',
+            '--icon=app_icon.ico',
             'main.py'
         ]
         
@@ -50,9 +48,7 @@ def build():
         print("开始 macOS 打包...")
         args = base_args + [
             '--windowed',
-            '--icon=resources/main.png',  # macOS 使用 png 或 icns
-            '--add-data=resources:resources',
-            '--add-data=config.json:.',
+            '--icon=app_icon.png',  # macOS 使用 png 或 icns
             'main.py'
         ]
         
@@ -61,9 +57,7 @@ def build():
         print("开始 Linux 打包...")
         args = base_args + [
             '--windowed',
-            '--icon=resources/main.png',
-            '--add-data=resources:resources',
-            '--add-data=config.json:.',
+            '--icon=app_icon.png',
             'main.py'
         ]
         

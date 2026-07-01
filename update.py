@@ -214,11 +214,22 @@ class Updater:
 
 if __name__ == '__main__':
 
+    if os.name == 'nt':
+        default_install_path = f"C:/software/{APP_NAME}"
+        default_backup_path = f"C:/software/{APP_NAME}-bak"
+        default_main_exe = f"{default_install_path}/{APP_NAME}.exe"
+        default_new_ver = os.path.join(os.environ.get("temp", ""), APP_NAME, APP_NAME)
+    else:
+        default_install_path = f"/Applications/{APP_NAME}.app"
+        default_backup_path = f"/Applications/{APP_NAME}-bak.app"
+        default_main_exe = default_install_path
+        default_new_ver = f"/tmp/{APP_NAME}/{APP_NAME}.app"
+
     # 使用示例
     updater = Updater(
-        install_path=f"C:/software/{APP_NAME}",
-        new_version_path=os.path.join(os.environ["temp"], APP_NAME, APP_NAME),
-        backup_path=f"C:/software/{APP_NAME}-bak",
-        main_exe=f"C:/software/{APP_NAME}/{APP_NAME}.exe" if os.name == 'nt' else f'/Applications/{APP_NAME}.app'
+        install_path=default_install_path,
+        new_version_path=default_new_ver,
+        backup_path=default_backup_path,
+        main_exe=default_main_exe
     )
     updater.perform_update()

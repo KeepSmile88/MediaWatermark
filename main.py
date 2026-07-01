@@ -61,7 +61,10 @@ def main():
 
     try:
         win = MainWindow()
-        win.setWindowIcon(QIcon("./app_icon.ico"))
+        if os.name == 'nt':
+            win.setWindowIcon(QIcon("./app_icon.ico"))
+        else:
+            win.setWindowIcon(QIcon("./app_icon.png"))
         win.show()
         sys.exit(app.exec())
     except Exception as e:

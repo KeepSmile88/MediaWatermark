@@ -8,7 +8,7 @@ import platform
 
 APP_NAME = "多媒体水印助手"
 APP_EN_NAME = "MediaWatermark"
-APP_VER = "2.6.0"
+APP_VER = "2.8.0"
 APP_FULL_NAME = f"{APP_NAME}_V{APP_VER}"
 
 WINDOWS_WIDTH, WINDOWS_HEIGHT = 1000, 800
@@ -16,8 +16,10 @@ X, Y = 100, 200
 
 GITHUB_REPO = f"KeepSmile88/{APP_EN_NAME}"
 UPDATE_URL = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
-
-FFMPEG_URL = "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip"
+if platform.system() == "Darwin":
+    FFMPEG_URL = "https://evermeet.cx/ffmpeg/getrelease/zip"
+else:
+    FFMPEG_URL = "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip"
 
 PLATFORM_MAP = {
     "Windows": ("download_url_win",   "filename_win"),
